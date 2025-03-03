@@ -6,7 +6,6 @@ class MockCopyHeaderInterceptor: HTTPServiceRequestInterceptor {
 
     var interceptCalls = 0
     var headers: [String: String]? = nil
-
     
     func intercept(request: URLRequest) -> URLRequest {
         interceptCalls += 1

@@ -10,17 +10,14 @@ public enum HTTPClientError: Error, Equatable {
 
 public final class HTTPClient {
     let urlSession: HTTPClientURLSession
-    let urlCache: URLCache
+    let configuration: Configuration
 
-    private(set) var requestMiddlewares: [HTTPServiceRequestInterceptor] = []
-
-    public init(urlSession: HTTPClientURLSession = URLSession.shared, urlCache: URLCache = URLCache.shared) {
+    public init(
+        urlSession: HTTPClientURLSession = URLSession.shared,
+        configuration: Configuration = Configuration()
+    ) {
         self.urlSession = urlSession
-        self.urlCache = urlCache
-    }
-
-    public func addRequestMiddleware(_ middleware: HTTPServiceRequestInterceptor) {
-        requestMiddlewares.append(middleware)
+        self.configuration = configuration
     }
 
     public func requestData(
@@ -36,11 +33,11 @@ public final class HTTPClient {
             throw HTTPClientError.invalidRequestURL
         }
 
-        if useCache, let cachedResponse = urlCache.cachedResponse(for: urlRequest) {
+        if useCache, let cachedResponse = configuration.cache.cachedResponse(for: urlRequest) {
             return cachedResponse.data
         }
 
-        let intercepctorsList = requestMiddlewares + interceptors
+        let intercepctorsList = configuration.interceptors + interceptors
 
         let interceptedRequest = intercepctorsList.reduce(urlRequest) { request, middleware in
             middleware.intercept(request: request)
@@ -62,7 +59,7 @@ public final class HTTPClient {
             throw HTTPClientError.unknownError
         }
 
-        urlCache.storeCachedResponse(.init(response: response, data: data), for: urlRequest)
+        configuration.cache.storeCachedResponse(.init(response: response, data: data), for: urlRequest)
         return data
     }
 
@@ -99,5 +96,24 @@ public final class HTTPClient {
         }
 
         return newRequest
+    }
+}
+
+extension HTTPClient {
+    public struct Configuration {
+        var interceptors: [HTTPServiceRequestInterceptor] = []
+        var cache: URLCache
+
+        public init(
+            interceptors: [HTTPServiceRequestInterceptor] = [],
+            cache: URLCache = URLCache()
+        ) {
+            self.interceptors = interceptors
+            self.cache = cache
+        }
+
+        mutating public func addInterceptor(_ interceptor: HTTPServiceRequestInterceptor) {
+            interceptors.append(interceptor)
+        }
     }
 }

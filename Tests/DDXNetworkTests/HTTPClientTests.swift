@@ -6,15 +6,7 @@ final class HTTPClientTests: XCTestCase {
     var sut: HTTPClient!
 
     override func setUpWithError() throws {
-        let data = "{\"result\": \"success\"}".data(using: .utf8)!
-        let response = HTTPURLResponse(
-            url: URL(string: "https://exe.de.de")!,
-            statusCode: 200,
-            httpVersion: "2.0",
-            headerFields: ["result1": "value1"]
-        )
-
-        makeSUT(result: .response(data, response!))
+        makeSUT(result: makeDefaultResponse())
     }
 
     override func tearDownWithError() throws {
@@ -82,18 +74,35 @@ final class HTTPClientTests: XCTestCase {
     func test_data_executeInterceptor() async throws {
         let interceptor = MockCopyHeaderInterceptor()
         let interceptorAddField = MockAddHeaderInterceptor(key: "exe", value: "dede")
-        sut.addRequestMiddleware(interceptorAddField)
+        makeSUT(
+            result: makeDefaultResponse(),
+            interceptors: [interceptorAddField, interceptor]
+        )
 
         _ = try await sut.requestData(.fixture(), interceptors: [interceptor])
 
-        XCTAssertEqual(interceptor.interceptCalls, 1)
+        XCTAssertEqual(interceptor.interceptCalls, 2)
         XCTAssertEqual(interceptor.headers, ["h1": "v1", "h2": "v2", "exe": "dede"])
-
         XCTAssertEqual(interceptorAddField.interceptCalls, 1)
     }
 
 
-    private func makeSUT(result: URLSessionMock.Result) {
-        sut = HTTPClient(urlSession: URLSessionMock(result: result))
+    private func makeSUT(result: URLSessionMock.Result, interceptors: [HTTPServiceRequestInterceptor] = []) {
+        sut = HTTPClient(
+            urlSession: URLSessionMock(result: result),
+            configuration: HTTPClient.Configuration(interceptors: interceptors)
+        )
+    }
+
+    private func makeDefaultResponse() -> URLSessionMock.Result {
+        let data = "{\"result\": \"success\"}".data(using: .utf8)!
+        let response = HTTPURLResponse(
+            url: URL(string: "https://exe.de.de")!,
+            statusCode: 200,
+            httpVersion: "2.0",
+            headerFields: ["result1": "value1"]
+        )
+
+        return .response(data, response!)
     }
 }
