@@ -21,16 +21,20 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		913F6E04242D7C8F00740A1A /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6DFE242D7C8F00740A1A /* RequestModel.swift */; };
-		913F6E05242D7C8F00740A1A /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6DFF242D7C8F00740A1A /* Defines.swift */; };
-		913F6E06242D7C8F00740A1A /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6E00242D7C8F00740A1A /* RequestService.swift */; };
-		913F6E07242D7C8F00740A1A /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6E01242D7C8F00740A1A /* HttpService.swift */; };
-		913F6E08242D7C8F00740A1A /* HttpWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6E02242D7C8F00740A1A /* HttpWorker.swift */; };
-		913F6E09242D7C8F00740A1A /* RequestWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6E03242D7C8F00740A1A /* RequestWorker.swift */; };
-		913F6E0C242D7CB800740A1A /* RequestWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6E0A242D7CB800740A1A /* RequestWorkerTests.swift */; };
-		913F6E0D242D7CB800740A1A /* HttpWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913F6E0B242D7CB800740A1A /* HttpWorkerTests.swift */; };
+		91D78CA02D7533F1001C96BF /* HTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9B2D7533F1001C96BF /* HTTPClientURLSession.swift */; };
+		91D78CA12D7533F1001C96BF /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9C2D7533F1001C96BF /* HTTPRequest.swift */; };
+		91D78CA22D7533F1001C96BF /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9A2D7533F1001C96BF /* HTTPClient.swift */; };
+		91D78CA32D7533F1001C96BF /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9E2D7533F1001C96BF /* DataFetcher.swift */; };
+		91D78CA42D7533F1001C96BF /* HTTPServiceRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9D2D7533F1001C96BF /* HTTPServiceRequestInterceptor.swift */; };
+		91D78CA52D7533F1001C96BF /* RequestFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9F2D7533F1001C96BF /* RequestFetcher.swift */; };
+		91D78CA82D75394B001C96BF /* HTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78CA62D75394B001C96BF /* HTTPClientTests.swift */; };
+		91D78CA92D75394B001C96BF /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78CA72D75394B001C96BF /* HTTPRequestTests.swift */; };
+		91D78CAC2D7539A8001C96BF /* HTTPRequest+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78CAB2D7539A2001C96BF /* HTTPRequest+Fixtures.swift */; };
+		91D78CAF2D753AF3001C96BF /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78CAE2D753AF0001C96BF /* URLSessionMock.swift */; };
+		91D78CB12D753B68001C96BF /* HTTPURLResponse+Fixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78CB02D753B64001C96BF /* HTTPURLResponse+Fixtures.swift */; };
+		91D78CB42D753BFB001C96BF /* MockCopyHeaderInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78CB32D753BFB001C96BF /* MockCopyHeaderInterceptor.swift */; };
+		91D78CB52D753BFB001C96BF /* MockAddHeaderInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78CB22D753BFB001C96BF /* MockAddHeaderInterceptor.swift */; };
 		OBJ_29 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_41 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* XCTestManifests.swift */; };
 		OBJ_43 /* DDXNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "DDXNetwork::DDXNetwork::Product" /* DDXNetwork.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,17 +56,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		913F6DFE242D7C8F00740A1A /* RequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
-		913F6DFF242D7C8F00740A1A /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
-		913F6E00242D7C8F00740A1A /* RequestService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
-		913F6E01242D7C8F00740A1A /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
-		913F6E02242D7C8F00740A1A /* HttpWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpWorker.swift; sourceTree = "<group>"; };
-		913F6E03242D7C8F00740A1A /* RequestWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestWorker.swift; sourceTree = "<group>"; };
-		913F6E0A242D7CB800740A1A /* RequestWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestWorkerTests.swift; sourceTree = "<group>"; };
-		913F6E0B242D7CB800740A1A /* HttpWorkerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpWorkerTests.swift; sourceTree = "<group>"; };
+		91D78C9A2D7533F1001C96BF /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		91D78C9B2D7533F1001C96BF /* HTTPClientURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientURLSession.swift; sourceTree = "<group>"; };
+		91D78C9C2D7533F1001C96BF /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		91D78C9D2D7533F1001C96BF /* HTTPServiceRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServiceRequestInterceptor.swift; sourceTree = "<group>"; };
+		91D78C9E2D7533F1001C96BF /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
+		91D78C9F2D7533F1001C96BF /* RequestFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFetcher.swift; sourceTree = "<group>"; };
+		91D78CA62D75394B001C96BF /* HTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientTests.swift; sourceTree = "<group>"; };
+		91D78CA72D75394B001C96BF /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
+		91D78CAB2D7539A2001C96BF /* HTTPRequest+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPRequest+Fixtures.swift"; sourceTree = "<group>"; };
+		91D78CAE2D753AF0001C96BF /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		91D78CB02D753B64001C96BF /* HTTPURLResponse+Fixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Fixtures.swift"; sourceTree = "<group>"; };
+		91D78CB22D753BFB001C96BF /* MockAddHeaderInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddHeaderInterceptor.swift; sourceTree = "<group>"; };
+		91D78CB32D753BFB001C96BF /* MockCopyHeaderInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCopyHeaderInterceptor.swift; sourceTree = "<group>"; };
 		"DDXNetwork::DDXNetwork::Product" /* DDXNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DDXNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"DDXNetwork::DDXNetworkTests::Product" /* DDXNetworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = DDXNetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_13 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,9 +93,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		91D78CAA2D753996001C96BF /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				91D78CAB2D7539A2001C96BF /* HTTPRequest+Fixtures.swift */,
+				91D78CB02D753B64001C96BF /* HTTPURLResponse+Fixtures.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		91D78CAD2D753AE7001C96BF /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				91D78CB22D753BFB001C96BF /* MockAddHeaderInterceptor.swift */,
+				91D78CB32D753BFB001C96BF /* MockCopyHeaderInterceptor.swift */,
+				91D78CAE2D753AF0001C96BF /* URLSessionMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				91D78CAD2D753AE7001C96BF /* Mocks */,
+				91D78CAA2D753996001C96BF /* Fixtures */,
 				OBJ_11 /* DDXNetworkTests */,
 			);
 			name = Tests;
@@ -96,9 +125,8 @@
 		OBJ_11 /* DDXNetworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_13 /* XCTestManifests.swift */,
-				913F6E0B242D7CB800740A1A /* HttpWorkerTests.swift */,
-				913F6E0A242D7CB800740A1A /* RequestWorkerTests.swift */,
+				91D78CA62D75394B001C96BF /* HTTPClientTests.swift */,
+				91D78CA72D75394B001C96BF /* HTTPRequestTests.swift */,
 			);
 			name = DDXNetworkTests;
 			path = Tests/DDXNetworkTests;
@@ -113,7 +141,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -121,7 +149,6 @@
 				OBJ_10 /* Tests */,
 				OBJ_14 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -135,12 +162,12 @@
 		OBJ_8 /* DDXNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				913F6DFF242D7C8F00740A1A /* Defines.swift */,
-				913F6E01242D7C8F00740A1A /* HttpService.swift */,
-				913F6E02242D7C8F00740A1A /* HttpWorker.swift */,
-				913F6DFE242D7C8F00740A1A /* RequestModel.swift */,
-				913F6E00242D7C8F00740A1A /* RequestService.swift */,
-				913F6E03242D7C8F00740A1A /* RequestWorker.swift */,
+				91D78C9A2D7533F1001C96BF /* HTTPClient.swift */,
+				91D78C9B2D7533F1001C96BF /* HTTPClientURLSession.swift */,
+				91D78C9C2D7533F1001C96BF /* HTTPRequest.swift */,
+				91D78C9D2D7533F1001C96BF /* HTTPServiceRequestInterceptor.swift */,
+				91D78C9E2D7533F1001C96BF /* DataFetcher.swift */,
+				91D78C9F2D7533F1001C96BF /* RequestFetcher.swift */,
 			);
 			name = DDXNetwork;
 			path = Sources/DDXNetwork;
@@ -206,7 +233,10 @@
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
 					"DDXNetwork::DDXNetwork" = {
-						LastSwiftMigration = 1130;
+						LastSwiftMigration = 1620;
+					};
+					"DDXNetwork::DDXNetworkTests" = {
+						LastSwiftMigration = 1620;
 					};
 				};
 			};
@@ -217,7 +247,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,12 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				913F6E08242D7C8F00740A1A /* HttpWorker.swift in Sources */,
-				913F6E05242D7C8F00740A1A /* Defines.swift in Sources */,
-				913F6E07242D7C8F00740A1A /* HttpService.swift in Sources */,
-				913F6E06242D7C8F00740A1A /* RequestService.swift in Sources */,
-				913F6E04242D7C8F00740A1A /* RequestModel.swift in Sources */,
-				913F6E09242D7C8F00740A1A /* RequestWorker.swift in Sources */,
+				91D78CA02D7533F1001C96BF /* HTTPClientURLSession.swift in Sources */,
+				91D78CA12D7533F1001C96BF /* HTTPRequest.swift in Sources */,
+				91D78CA22D7533F1001C96BF /* HTTPClient.swift in Sources */,
+				91D78CA32D7533F1001C96BF /* DataFetcher.swift in Sources */,
+				91D78CA42D7533F1001C96BF /* HTTPServiceRequestInterceptor.swift in Sources */,
+				91D78CA52D7533F1001C96BF /* RequestFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,9 +286,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_41 /* XCTestManifests.swift in Sources */,
-				913F6E0D242D7CB800740A1A /* HttpWorkerTests.swift in Sources */,
-				913F6E0C242D7CB800740A1A /* RequestWorkerTests.swift in Sources */,
+				91D78CA82D75394B001C96BF /* HTTPClientTests.swift in Sources */,
+				91D78CB12D753B68001C96BF /* HTTPURLResponse+Fixtures.swift in Sources */,
+				91D78CAC2D7539A8001C96BF /* HTTPRequest+Fixtures.swift in Sources */,
+				91D78CA92D75394B001C96BF /* HTTPRequestTests.swift in Sources */,
+				91D78CAF2D753AF3001C96BF /* URLSessionMock.swift in Sources */,
+				91D78CB42D753BFB001C96BF /* MockCopyHeaderInterceptor.swift in Sources */,
+				91D78CB52D753BFB001C96BF /* MockAddHeaderInterceptor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,9 +324,9 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DDXNetwork.xcodeproj/DDXNetwork_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -304,8 +338,8 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = DDXNetwork;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 16.6;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Debug;
 		};
@@ -321,9 +355,9 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DDXNetwork.xcodeproj/DDXNetwork_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -334,8 +368,8 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = DDXNetwork;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				TVOS_DEPLOYMENT_TARGET = 16.6;
+				WATCHOS_DEPLOYMENT_TARGET = 10.6;
 			};
 			name = Release;
 		};
@@ -372,7 +406,8 @@
 					"SWIFT_PACKAGE=1",
 					"DEBUG=1",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -399,7 +434,6 @@
 		OBJ_37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -408,13 +442,14 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DDXNetwork.xcodeproj/DDXNetworkTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGET_NAME = DDXNetworkTests;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
@@ -425,7 +460,6 @@
 		OBJ_38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -434,7 +468,7 @@
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = DDXNetwork.xcodeproj/DDXNetworkTests_Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CFLAGS = "$(inherited)";
@@ -461,7 +495,8 @@
 					"$(inherited)",
 					"SWIFT_PACKAGE=1",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
