@@ -1,6 +1,5 @@
 # DDXNetwork
 
-![Swift](https://github.com/dedeexe/DDXNetwork/workflows/Swift/badge.svg)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f3687528228f41c9941a36354bf93d71)](https://www.codacy.com/manual/dedeexe/DDXNetwork?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dedeexe/DDXNetwork&amp;utm_campaign=Badge_Grade)
+This is a simple framework to handle Network in Swift. There is no big goals developing this framework but educative ones.
 
-Just a network lib to simplify my life.
+

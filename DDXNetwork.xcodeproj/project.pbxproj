@@ -21,6 +21,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		91B175242D7745D4000C10B7 /* MockHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B175232D7745CF000C10B7 /* MockHTTPClient.swift */; };
+		91B175262D77E39D000C10B7 /* DataFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B175252D77E39D000C10B7 /* DataFetcherTests.swift */; };
+		91B175282D789CFD000C10B7 /* RequestFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B175272D789CFD000C10B7 /* RequestFetcher.swift */; };
+		91B1752A2D789E26000C10B7 /* MockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B175292D789E23000C10B7 /* MockObject.swift */; };
 		91D78CA02D7533F1001C96BF /* HTTPClientURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9B2D7533F1001C96BF /* HTTPClientURLSession.swift */; };
 		91D78CA12D7533F1001C96BF /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9C2D7533F1001C96BF /* HTTPRequest.swift */; };
 		91D78CA22D7533F1001C96BF /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D78C9A2D7533F1001C96BF /* HTTPClient.swift */; };
@@ -56,6 +60,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91B175232D7745CF000C10B7 /* MockHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHTTPClient.swift; sourceTree = "<group>"; };
+		91B175252D77E39D000C10B7 /* DataFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherTests.swift; sourceTree = "<group>"; };
+		91B175272D789CFD000C10B7 /* RequestFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFetcher.swift; sourceTree = "<group>"; };
+		91B175292D789E23000C10B7 /* MockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockObject.swift; sourceTree = "<group>"; };
 		91D78C9A2D7533F1001C96BF /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		91D78C9B2D7533F1001C96BF /* HTTPClientURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClientURLSession.swift; sourceTree = "<group>"; };
 		91D78C9C2D7533F1001C96BF /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
@@ -105,6 +113,8 @@
 		91D78CAD2D753AE7001C96BF /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				91B175292D789E23000C10B7 /* MockObject.swift */,
+				91B175232D7745CF000C10B7 /* MockHTTPClient.swift */,
 				91D78CB22D753BFB001C96BF /* MockAddHeaderInterceptor.swift */,
 				91D78CB32D753BFB001C96BF /* MockCopyHeaderInterceptor.swift */,
 				91D78CAE2D753AF0001C96BF /* URLSessionMock.swift */,
@@ -127,6 +137,8 @@
 			children = (
 				91D78CA62D75394B001C96BF /* HTTPClientTests.swift */,
 				91D78CA72D75394B001C96BF /* HTTPRequestTests.swift */,
+				91B175252D77E39D000C10B7 /* DataFetcherTests.swift */,
+				91B175272D789CFD000C10B7 /* RequestFetcher.swift */,
 			);
 			name = DDXNetworkTests;
 			path = Tests/DDXNetworkTests;
@@ -286,11 +298,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				91B175262D77E39D000C10B7 /* DataFetcherTests.swift in Sources */,
+				91B175242D7745D4000C10B7 /* MockHTTPClient.swift in Sources */,
 				91D78CA82D75394B001C96BF /* HTTPClientTests.swift in Sources */,
+				91B1752A2D789E26000C10B7 /* MockObject.swift in Sources */,
 				91D78CB12D753B68001C96BF /* HTTPURLResponse+Fixtures.swift in Sources */,
 				91D78CAC2D7539A8001C96BF /* HTTPRequest+Fixtures.swift in Sources */,
 				91D78CA92D75394B001C96BF /* HTTPRequestTests.swift in Sources */,
 				91D78CAF2D753AF3001C96BF /* URLSessionMock.swift in Sources */,
+				91B175282D789CFD000C10B7 /* RequestFetcher.swift in Sources */,
 				91D78CB42D753BFB001C96BF /* MockCopyHeaderInterceptor.swift in Sources */,
 				91D78CB52D753BFB001C96BF /* MockAddHeaderInterceptor.swift in Sources */,
 			);
@@ -448,7 +464,7 @@
 				INFOPLIST_FILE = DDXNetwork.xcodeproj/DDXNetworkTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
@@ -474,7 +490,7 @@
 				INFOPLIST_FILE = DDXNetwork.xcodeproj/DDXNetworkTests_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";

@@ -1,94 +1,90 @@
 @testable import DDXNetwork
-import XCTest
+import Foundation
+import Testing
 
-final class HTTPClientTests: XCTestCase {
+struct HTTPClientTests {
 
     var sut: HTTPClient!
 
-    override func setUpWithError() throws {
-        makeSUT(result: makeDefaultResponse())
-    }
 
-    override func tearDownWithError() throws {
-        sut = nil
-    }
-
-    func test_data_successResponse() async throws {
+    @Test func data_successResponse() async throws {
+        let sut = makeSUT(result: makeDefaultResponse())
         let result = try await sut.requestData(.fixture(), interceptors: [])
         let string = String(data: result, encoding: .utf8) ?? ""
 
-        XCTAssertTrue(string.contains("success"))
-        XCTAssertTrue(string.contains("result"))
-        XCTAssertTrue(string.contains("}"))
-        XCTAssertTrue(string.contains("{"))
-        XCTAssertTrue(string.contains(":"))
+        #expect(string.contains("success"))
+        #expect(string.contains("result"))
+        #expect(string.contains("}"))
+        #expect(string.contains("{"))
+        #expect(string.contains(":"))
     }
 
-    func test_data_whenRequestHasInvalidURL_throwsException() async throws {
-        makeSUT(result: .response(Data(capacity: 1) , HTTPURLResponse.fixture()!))
+    @Test func data_whenRequestHasInvalidURL_throwsException() async throws {
+        let sut = makeSUT(result: .response(Data(capacity: 1) , HTTPURLResponse.fixture()!))
 
         do {
             _ = try await sut.requestData(.fixture(url: "https://invalid .com"), interceptors: [])
-            XCTFail("This points shouldn't be reached")
+            Issue.record("This points shouldn't be reached")
         } catch {
             if let raiseError = error as? HTTPClientError {
-                XCTAssertEqual(raiseError, HTTPClientError.invalidRequestURL)
+                #expect(raiseError == HTTPClientError.invalidRequestURL)
             } else {
-                XCTFail("Unexpected exception type: \(error)")
+                Issue.record("Unexpected exception type: \(error)")
             }
         }
     }
 
-    func test_data_whenResponseStatusCodeMeansError_throwsException() async throws {
+    @Test func data_whenResponseStatusCodeMeansError_throwsException() async throws {
         let response = HTTPURLResponse.fixture(statusCode: 400)!
-        makeSUT(result: .response(Data(capacity: 1), response))
+        let sut = makeSUT(result: .response(Data(capacity: 1), response))
 
         do {
             _ = try await sut.requestData(.fixture(), interceptors: [])
-            XCTFail("This points shouldn't be reached")
+            Issue.record("This points shouldn't be reached")
         } catch {
             if case HTTPClientError.httpError(let statusCode, _) = error {
-                XCTAssertEqual(statusCode, 400)
+                #expect(statusCode == 400)
             } else {
-                XCTFail("Unexpected exception type: \(error)")
+                Issue.record("Unexpected exception type: \(error)")
             }
         }
     }
 
-    func test_data_whenResponseStatusCodeFrom300to399_throwsException() async throws {
+    @Test func data_whenResponseStatusCodeFrom300to399_throwsException() async throws {
         let response = HTTPURLResponse.fixture(statusCode: 350)!
-        makeSUT(result: .response(Data(capacity: 1), response))
+        let sut = makeSUT(result: .response(Data(capacity: 1), response))
 
         do {
             _ = try await sut.requestData(.fixture(), interceptors: [])
-            XCTFail("This points shouldn't be reached")
+            Issue.record("This points shouldn't be reached")
         } catch {
             if let raiseError = error as? HTTPClientError {
-                XCTAssertEqual(raiseError, HTTPClientError.unknownError)
+                #expect(raiseError == HTTPClientError.unknownError)
             } else {
-                XCTFail("Unexpected exception type: \(error)")
+                Issue.record("Unexpected exception type: \(error)")
             }
         }
     }
 
-    func test_data_executeInterceptor() async throws {
+    @Test func data_executeInterceptor() async throws {
         let interceptor = MockCopyHeaderInterceptor()
         let interceptorAddField = MockAddHeaderInterceptor(key: "exe", value: "dede")
-        makeSUT(
+        let sut = makeSUT(
             result: makeDefaultResponse(),
             interceptors: [interceptorAddField, interceptor]
         )
 
         _ = try await sut.requestData(.fixture(), interceptors: [interceptor])
 
-        XCTAssertEqual(interceptor.interceptCalls, 2)
-        XCTAssertEqual(interceptor.headers, ["h1": "v1", "h2": "v2", "exe": "dede"])
-        XCTAssertEqual(interceptorAddField.interceptCalls, 1)
+        #expect(interceptor.interceptCalls == 2)
+        #expect(interceptor.headers == ["h1": "v1", "h2": "v2", "exe": "dede"])
+        #expect(interceptorAddField.interceptCalls == 1)
     }
 
+    //MARK: - Helpers
 
-    private func makeSUT(result: URLSessionMock.Result, interceptors: [HTTPServiceRequestInterceptor] = []) {
-        sut = HTTPClient(
+    private func makeSUT(result: URLSessionMock.Result, interceptors: [HTTPServiceRequestInterceptor] = []) -> HTTPClient {
+        return HTTPClient(
             urlSession: URLSessionMock(result: result),
             configuration: HTTPClient.Configuration(interceptors: interceptors)
         )

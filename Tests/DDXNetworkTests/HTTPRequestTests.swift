@@ -1,35 +1,31 @@
 @testable import DDXNetwork
-import XCTest
+import Testing
 
-final class HTTPRequestTests: XCTestCase {
+struct HTTPRequestTests {
 
-    var sut: HTTPRequest!
-
-    override func setUp() async throws {
-        sut = .fixture()
-    }
-
-    override func tearDownWithError() throws {
-        sut = nil
-    }
-
-    func test_builder() throws {
+    @Test func builder() async throws {
         let data = "{\"result\": \"success\"}".data(using: .utf8)
-        let expectedRequest = HTTPRequest(
-            url: "https://test.tst",
-            method: .get,
-            parameters: ["p1": "v1", "p2": "v2"],
-            header: ["h1": "v1", "h2": "v2"],
-            body: data,
-            timeout: 42
-        )
 
-        XCTAssertEqual(expectedRequest.url, sut.url)
-        XCTAssertEqual(expectedRequest.method, sut.method)
-        XCTAssertEqual(expectedRequest.parameters, sut.parameters)
-        XCTAssertEqual(expectedRequest.header, sut.header)
-        XCTAssertEqual(expectedRequest.body, sut.body)
-        XCTAssertEqual(expectedRequest.timeout, sut.timeout)
+        let expectedRequest = HTTPRequest
+            .builder
+            .url("https://test.tst")
+            .method(.get)
+            .paramter(key: "p1", value: "v1")
+            .paramter(key: "p2", value: "v2")
+            .header(key: "h1", value: "v1")
+            .header(key: "h2", value: "v2")
+            .body(data)
+            .timeout(42)
+            .build()
+
+        let sut = HTTPRequest.fixture()
+
+        #expect(expectedRequest.url == sut.url)
+        #expect(expectedRequest.method == sut.method)
+        #expect(expectedRequest.parameters == sut.parameters)
+        #expect(expectedRequest.header == sut.header)
+        #expect(expectedRequest.body == sut.body)
+        #expect(expectedRequest.timeout == sut.timeout)
     }
 }
 
